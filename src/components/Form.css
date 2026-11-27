@@ -18,7 +18,7 @@
   cursor: pointer;
 }
 
-/* Una sola columna */
+/* Single column */
 .form-panel {
   display: flex;
   flex-direction: column;

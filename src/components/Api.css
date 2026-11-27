@@ -23,7 +23,7 @@
   border-radius: 6px;
 }
 
-/* Tres columnas en escritorio */
+/* Three columns on desktop */
 .api-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -63,14 +63,14 @@
   color: #c62828;
 }
 
-/* Dos columnas en tablet */
+/* Two columns on tablet */
 @media (max-width: 800px) {
   .api-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* Una columna en celular */
+/* One column on mobile */
 @media (max-width: 500px) {
   .api-grid {
     grid-template-columns: 1fr;
