@@ -1,0 +1,93 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f4f4;
+}
+
+/* ----- Login ----- */
+.login-panel {
+  width: 320px;
+  margin: 80px auto;
+  padding: 24px;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.login-panel h2 {
+  text-align: center;
+  margin: 0 0 8px 0;
+}
+
+.login-panel input {
+  padding: 8px;
+  border: 1px solid #bbbbbb;
+  border-radius: 4px;
+}
+
+.login-panel button {
+  padding: 10px;
+  background-color: #2d6cdf;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.login-panel button:hover {
+  background-color: #1f4fa8;
+}
+
+.login-error {
+  color: #c62828;
+  font-size: 14px;
+  text-align: center;
+}
+
+/* ----- Menu ----- */
+.menu-panel {
+  width: 320px;
+  margin: 80px auto;
+  padding: 24px;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.menu-panel h2 {
+  text-align: center;
+  margin: 0 0 8px 0;
+}
+
+.menu-panel button {
+  padding: 12px;
+  background-color: #2d6cdf;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.menu-panel button:hover {
+  background-color: #1f4fa8;
+}
+
+.menu-panel .menu-logout {
+  background-color: #c62828;
+  margin-top: 8px;
+}
+
+.menu-panel .menu-logout:hover {
+  background-color: #8e1c1c;
+}
