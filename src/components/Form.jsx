@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./Form.css";
 
 function Form({ onBack }) {
-  // Un estado para cada campo del formulario
+  // One state for each form field
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [gender, setGender] = useState("");
@@ -11,11 +11,11 @@ function Form({ onBack }) {
   const [comments, setComments] = useState("");
   const [terms, setTerms] = useState(false);
 
-  // Estados para los errores y la confirmación
+  // State for the error messages and the confirmation
   const [errors, setErrors] = useState({});
   const [success, setSuccess] = useState(false);
 
-  // Agrega o quita un interés de la lista
+  // Add or remove an interest from the list
   function handleInterest(event) {
     const value = event.target.value;
     if (event.target.checked) {
@@ -30,20 +30,20 @@ function Form({ onBack }) {
 
     const newErrors = {};
     if (name.trim() === "") {
-      newErrors.name = "Este campo es obligatorio";
+      newErrors.name = "This field is required";
     }
-    // Correo sencillo: texto@texto.texto
+    // Simple email check: text@text.text
     const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailPattern.test(email)) {
-      newErrors.email = "Ingresa un correo válido";
+      newErrors.email = "Enter a valid email";
     }
     if (!terms) {
-      newErrors.terms = "Debes aceptar los términos";
+      newErrors.terms = "You must accept the terms";
     }
 
     setErrors(newErrors);
 
-    // Si no hay errores, mostramos la confirmación (no se envía a ningún servidor)
+    // If there are no errors, show the confirmation (nothing is sent to a server)
     if (Object.keys(newErrors).length === 0) {
       setSuccess(true);
     } else {
@@ -51,7 +51,7 @@ function Form({ onBack }) {
     }
   }
 
-  // Deja todo como al inicio
+  // Reset everything to the initial values
   function handleClear() {
     setName("");
     setEmail("");
@@ -70,10 +70,10 @@ function Form({ onBack }) {
         Back
       </button>
 
-      <h2>Formulario</h2>
+      <h2>Form</h2>
 
       <form className="form-panel" onSubmit={handleSubmit}>
-        <label>Nombre</label>
+        <label>Name</label>
         <input
           type="text"
           value={name}
@@ -81,7 +81,7 @@ function Form({ onBack }) {
         />
         {errors.name && <p className="form-error">{errors.name}</p>}
 
-        <label>Correo electrónico</label>
+        <label>Email</label>
         <input
           type="text"
           value={email}
@@ -89,93 +89,93 @@ function Form({ onBack }) {
         />
         {errors.email && <p className="form-error">{errors.email}</p>}
 
-        <label>Género</label>
+        <label>Gender</label>
         <div className="form-options">
           <label>
             <input
               type="radio"
               name="gender"
-              value="Masculino"
-              checked={gender === "Masculino"}
+              value="Male"
+              checked={gender === "Male"}
               onChange={(event) => setGender(event.target.value)}
             />
-            Masculino
+            Male
           </label>
           <label>
             <input
               type="radio"
               name="gender"
-              value="Femenino"
-              checked={gender === "Femenino"}
+              value="Female"
+              checked={gender === "Female"}
               onChange={(event) => setGender(event.target.value)}
             />
-            Femenino
+            Female
           </label>
           <label>
             <input
               type="radio"
               name="gender"
-              value="Otro"
-              checked={gender === "Otro"}
+              value="Other"
+              checked={gender === "Other"}
               onChange={(event) => setGender(event.target.value)}
             />
-            Otro
+            Other
           </label>
         </div>
 
-        <label>País</label>
+        <label>Country</label>
         <select
           value={country}
           onChange={(event) => setCountry(event.target.value)}
         >
-          <option value="">Selecciona una opción</option>
+          <option value="">Select an option</option>
           <option value="Ecuador">Ecuador</option>
           <option value="Colombia">Colombia</option>
-          <option value="Perú">Perú</option>
-          <option value="Otro">Otro</option>
+          <option value="Peru">Peru</option>
+          <option value="Other">Other</option>
         </select>
 
-        <label>Intereses</label>
+        <label>Interests</label>
         <div className="form-interests">
           <label>
             <input
               type="checkbox"
-              value="Deportes"
-              checked={interests.includes("Deportes")}
+              value="Sports"
+              checked={interests.includes("Sports")}
               onChange={handleInterest}
             />
-            Deportes
+            Sports
           </label>
           <label>
             <input
               type="checkbox"
-              value="Música"
-              checked={interests.includes("Música")}
+              value="Music"
+              checked={interests.includes("Music")}
               onChange={handleInterest}
             />
-            Música
+            Music
           </label>
           <label>
             <input
               type="checkbox"
-              value="Tecnología"
-              checked={interests.includes("Tecnología")}
+              value="Technology"
+              checked={interests.includes("Technology")}
               onChange={handleInterest}
             />
-            Tecnología
+            Technology
           </label>
           <label>
             <input
               type="checkbox"
-              value="Lectura"
-              checked={interests.includes("Lectura")}
+              value="Reading"
+              checked={interests.includes("Reading")}
               onChange={handleInterest}
             />
-            Lectura
+            Reading
           </label>
         </div>
 
-        <label>Comentarios</label>
+        <label>Comments</label>
         <textarea
           rows="3"
           maxLength={200}
@@ -190,20 +190,20 @@ function Form({ onBack }) {
             checked={terms}
             onChange={(event) => setTerms(event.target.checked)}
           />
-          Acepto los términos y condiciones
+          I accept the terms and conditions
         </label>
         {errors.terms && <p className="form-error">{errors.terms}</p>}
 
         {success && (
-          <p className="form-success">Formulario enviado correctamente.</p>
+          <p className="form-success">Form submitted successfully.</p>
         )}
 
         <div className="form-buttons">
           <button type="button" className="form-clear" onClick={handleClear}>
-            Limpiar
+            Clear
           </button>
           <button type="submit" className="form-submit">
-            Enviar
+            Submit
           </button>
         </div>
       </form>
